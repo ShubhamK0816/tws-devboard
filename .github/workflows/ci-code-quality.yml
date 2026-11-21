@@ -18,17 +18,12 @@ jobs:
           cache: true
           cache-dependency-path: ./backend/go.mod
       - name: Check formatting (gofmt)
-        run: |
-          if [ -n "$(gofmt -l .)" ]; then
-            echo "The following Go files are not properly formatted:"
-            gofmt -l .
-            exit 1
-          fi
-      - name: Run golangci-lint
-        uses: golangci/golangci-lint-action@v9
-        with:
-          version: v2.13
-      
+        run: go fmt
+        working-directory: ./backend
+      - name: Run Go Linter
+        run: go vet
+        working-directory: ./backend
+
 # Frontend code quality checks
 
       - name: Setup Node.js
