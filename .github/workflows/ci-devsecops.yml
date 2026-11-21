@@ -8,3 +8,15 @@ jobs:
     uses: ./.github/workflows/ci-code-quality.yml
   SecretScanning:
     uses: ./.github/workflows/ci-secret-scanning.yml
+  DependencyScan:
+    uses: ./.github/workflows/ci-dependency-scan.yml
+  # DockerfileScan:
+  #   uses: ./.github/workflows/ci-docker-scan.yml
+  #   secrets: inherit
+  # sonarscan:
+  #   uses: ./.github/workflows/ci-sonarscan.yml
+  #   secrets: inherit
+  dockerbuildpush:
+    needs: [CodeQuality, SecretScanning, DependencyScan]
+    uses: ./.github/workflows/ci-docker-push.yml
+    secrets: inherit
