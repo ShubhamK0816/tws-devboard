@@ -13,10 +13,10 @@ jobs:
       - name: Setup Go
         uses: actions/setup-go@v7
         with:
-          go-version-file: 'go.mod'
+          go-version-file: ./backend/go.mod
           check-latest: false
           cache: true
-          cache-dependency-path: 'go.sum'
+          cache-dependency-path: ./backend/go.mod
       - name: Check formatting (gofmt)
         run: |
           if [ -n "$(gofmt -l .)" ]; then
