@@ -10,9 +10,9 @@ jobs:
     uses: ./.github/workflows/ci-secret-scanning.yml
   DependencyScan:
     uses: ./.github/workflows/ci-dependency-scan.yml
-  # DockerfileScan:
-  #   uses: ./.github/workflows/ci-docker-scan.yml
-  #   secrets: inherit
+  DockerfileScan:
+    uses: ./.github/workflows/ci-docker-scan.yml
+    secrets: inherit
   # sonarscan:
   #   uses: ./.github/workflows/ci-sonarscan.yml
   #   secrets: inherit
