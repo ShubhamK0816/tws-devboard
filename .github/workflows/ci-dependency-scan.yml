@@ -39,7 +39,7 @@ jobs:
           repo-checkout: false
           output-format: json
           output-file: report.json
-      - name: 'Upload Artifact Backend'
+      - name: 'Upload Artifact Backend report'
         if: always()
         uses: actions/upload-artifact@v4
         with:
