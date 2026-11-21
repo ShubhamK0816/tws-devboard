@@ -16,7 +16,7 @@ jobs:
   # sonarscan:
   #   uses: ./.github/workflows/ci-sonarscan.yml
   #   secrets: inherit
-  dockerbuildpush:
-    needs: [CodeQuality, SecretScanning, DependencyScan]
-    uses: ./.github/workflows/ci-docker-push.yml
-    secrets: inherit
+  # dockerbuildpush:
+  #   needs: [CodeQuality, SecretScanning, DependencyScan, DockerfileScan, sonarscan, dockerfilescan, sonarscan]
+  #   uses: ./.github/workflows/ci-docker-push.yml
+  #   secrets: inherit
